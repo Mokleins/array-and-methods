@@ -1,3 +1,5 @@
+import UnshiftAndPush from "./components/UnshiftAndPush";
+
 function App() {
   
   const family = ['Mariia', 'Marina', 'Darina', 'Yenia', 'Xylon'];
