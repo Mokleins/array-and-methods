@@ -4,56 +4,60 @@ function UnshiftAndPush() {
   const [unshift, setUnshift] = useState("");
   const [push, setPush] = useState("");
   const [family, setFamily] = useState([]);
-  const familytwo = ["Xylon", "Louis", "Efrain", "Monica"];
+  const [familyTwo, setFamilyTwo] = useState([]);
+
   // family.push("Un nuevo elemento");
-  console.log(family);
-  console.log(unshift);
 
-    useEffect(() => {
-    
-      return () => {
-        setFamily(["Mariia", "Marina", "Darina", "Yenia", "Xylon"]);
-      }
-    }, [setFamily])
-    
-
-  
-
-  console.log(family);
+  useEffect(() => {
+    return () => {
+      setFamily(["Mariia", "Marina", "Darina", "Yenia", "Xylon"]);
+      setFamilyTwo(["Xylon", "Louis", "Efrain", "Monica"]);
+    };
+  }, []);
 
   function handleUnshiftSubmit(e) {
     e.preventDefault();
-    console.log(unshift);
     family.unshift(unshift);
     setFamily(family);
-    console.log(family);
+    setUnshift("");
   }
 
-
-  function handlePushSubmit(e) {
-    e.preventDefault()
-    console.log("hello")
+  function handlePushSubmit(e){
+    e.preventDefault();
+    familyTwo.push(push);
+    setFamilyTwo(familyTwo);
+    setPush("");
   }
-
   return (
     <>
       <form onSubmit={handleUnshiftSubmit}>
         <button>Unshift</button>
-        <input type="text" id="unshift" value={unshift} onChange={e => setUnshift(e.target.value)}></input>
+        <input
+          type="text"
+          id="unshift"
+          value={unshift}
+          onChange={(e) => setUnshift(e.target.value)}
+        ></input>
       </form>
       {family.map((x, i) => {
         return (
-          <p>
-            index = {i}: {x}{""}
+          <p key={i}>
+            index = {i}: {x}
+            {""}
           </p>
         );
       })}
       <form onSubmit={handlePushSubmit}>
-        <button onSubmit={handlePushSubmit}>Push</button>
-        <input type="text" id="push" value={push} onChange={e => setPush(e.target.value)}></input>
+        <button>Push</button>
+        <input
+          type="text"
+          id="push"
+          value={push}
+          onChange={(e) => setPush(e.target.value)}
+        ></input>
       </form>
       <p>Another Family Array</p>
-      {familytwo.map((x, i) => {
+      {familyTwo.map((x, i) => {
         return (
           <p>
             index = {i}: {x}
