@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 
 function UnshiftAndPush() {
   const [unshift, setUnshift] = useState("");
@@ -9,26 +9,38 @@ function UnshiftAndPush() {
   console.log(family);
   console.log(unshift);
 
-  function fam() {
+    useEffect(() => {
+    
+      return () => {
+        setFamily(["Mariia", "Marina", "Darina", "Yenia", "Xylon"]);
+      }
+    }, [setFamily])
+    
 
-      setFamily(["Mariia", "Marina", "Darina", "Yenia", "Xylon"]);
-  }
-  fam()
+  
 
   console.log(family);
 
   function handleUnshiftSubmit(e) {
     e.preventDefault();
     console.log(unshift);
-    let new_family = family.unshift(unshift);
-    setFamily(new_family);
+    family.unshift(unshift);
+    setFamily(family);
+    console.log(family);
   }
 
 
+  function handlePushSubmit(e) {
+    e.preventDefault()
+    console.log("hello")
+  }
+
   return (
     <>
-      <button onSubmit={handleUnshiftSubmit}>Unshift</button>
-      <input type="text" id="unshift" value={unshift} onChange={e => setUnshift(e.target.value)}></input>
+      <form onSubmit={handleUnshiftSubmit}>
+        <button>Unshift</button>
+        <input type="text" id="unshift" value={unshift} onChange={e => setUnshift(e.target.value)}></input>
+      </form>
       {family.map((x, i) => {
         return (
           <p>
@@ -36,8 +48,10 @@ function UnshiftAndPush() {
           </p>
         );
       })}
-      <button>Push</button>
-      <input type="text" id="push" value={push} onChange={e => setPush(e.target.value)}></input>
+      <form onSubmit={handlePushSubmit}>
+        <button onSubmit={handlePushSubmit}>Push</button>
+        <input type="text" id="push" value={push} onChange={e => setPush(e.target.value)}></input>
+      </form>
       <p>Another Family Array</p>
       {familytwo.map((x, i) => {
         return (
