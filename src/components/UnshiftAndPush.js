@@ -33,7 +33,9 @@ function UnshiftAndPush() {
       <div className="cards">
         <div className="card">
           <h3>.unshift()</h3>
-          <p>it adds elements to the beginning of the array</p>
+          <p>It adds elements to the beginning of the array</p>
+          <h3>.shift()</h3>
+          <p>It removes the first element in an Array</p>
           <form>
             <button>Shift</button>
           </form>
@@ -58,8 +60,9 @@ function UnshiftAndPush() {
         </div>
         <div className="card">
           <h3>.push()</h3>
-          <p>it adds elements to the end of the array</p>
+          <p>It adds elements to the end of the array</p>
           <h3>.pop()</h3>
+          <p>It removes the last element in an Array</p>
           
           <form>
             <button>Pop</button>
