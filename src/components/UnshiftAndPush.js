@@ -44,16 +44,16 @@ function UnshiftAndPush() {
   function handlePopSubmit(e) {
     e.preventDefault();
     familyTwo.pop();
-    setFamilyTwo(familyTwo);
+    setFamilyTwo((familyTwo) => familyTwo.filter(member => member !== ""));
     
   }
 
   function handleShiftSubmit(e) {
     e.preventDefault();
     family.shift();
-    setFamily(family);
-    setUnshift("");
+    setFamily((family) => family.filter(member => member !== ""));
   }
+
   return (
     <>
       <div className="cards">
