@@ -5,8 +5,8 @@ function UnshiftAndPush() {
   const [push, setPush] = useState("");
   const [family, setFamily] = useState([]);
   const [familyTwo, setFamilyTwo] = useState([]);
-
-  // family.push("Un nuevo elemento");
+  const [isError, setIsError] = useState(false);
+  const [isError1, setIsError1] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -17,16 +17,28 @@ function UnshiftAndPush() {
 
   function handleUnshiftSubmit(e) {
     e.preventDefault();
-    family.unshift(unshift);
-    setFamily(family);
-    setUnshift("");
+    if (unshift !== "") {
+      family.unshift(unshift);
+      setFamily(family);
+      setUnshift("");
+      setIsError1(false);
+    }
+    if(unshift === ""){
+        setIsError1(true);
+    }
   }
 
   function handlePushSubmit(e) {
     e.preventDefault();
-    familyTwo.push(push);
-    setFamilyTwo(familyTwo);
-    setPush("");
+    if (push !== "") {
+      familyTwo.push(push);
+      setFamilyTwo(familyTwo);
+      setPush("");
+      setIsError(false);
+    }
+    if (push === "") {
+      setIsError(true);
+    }
   }
   return (
     <>
@@ -36,19 +48,25 @@ function UnshiftAndPush() {
           <p>It adds elements to the beginning of the array</p>
           <h3>.shift()</h3>
           <p>It removes the first element in an Array</p>
-          <form>
-            <button>Shift</button>
-          </form>
-          <form onSubmit={handleUnshiftSubmit}>
-            <button>Unshift</button>
-            <input
-              type="text"
-              id="unshift"
-              value={unshift}
-              onChange={(e) => setUnshift(e.target.value)}
-            ></input>
-          </form>
-
+          <div className="horizontal">
+            <form>
+              <button>Shift</button>
+            </form>
+            <form onSubmit={handleUnshiftSubmit}>
+              <button>Unshift</button>
+              <input
+                type="text"
+                id="unshift"
+                value={unshift}
+                onChange={(e) => setUnshift(e.target.value)}
+              ></input>
+            </form>
+            {isError1 ? (
+              <p className="error">It can't be an empty string</p>
+            ) : (
+              <p></p>
+            )}
+          </div>
           {family.map((x, i) => {
             return (
               <p key={i}>
@@ -63,19 +81,25 @@ function UnshiftAndPush() {
           <p>It adds elements to the end of the array</p>
           <h3>.pop()</h3>
           <p>It removes the last element in an Array</p>
-          
-          <form>
-            <button>Pop</button>
-          </form>
-          <form onSubmit={handlePushSubmit}>
-            <button>Push</button>
-            <input
-              type="text"
-              id="push"
-              value={push}
-              onChange={(e) => setPush(e.target.value)}
-            ></input>
-          </form>
+          <div className="horizontal">
+            <form>
+              <button>Pop</button>
+            </form>
+            <form onSubmit={handlePushSubmit}>
+              <button>Push</button>
+              <input
+                type="text"
+                id="push"
+                value={push}
+                onChange={(e) => setPush(e.target.value)}
+              ></input>
+            </form>
+            {isError ? (
+              <p className="error">It can't be an empty string</p>
+            ) : (
+              <p></p>
+            )}
+          </div>
           {familyTwo.map((x, i) => {
             return (
               <p>
