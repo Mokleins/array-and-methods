@@ -17,3 +17,21 @@ header {
   padding-left: 10px;
 }
 
+.card {
+  margin: 2rem 0;
+  width: 500px;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+} 
+
+.cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+}
+
+.horizontal {
+  display: flex;
+}

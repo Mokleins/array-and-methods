@@ -10,7 +10,7 @@ function UnshiftAndPush() {
 
   useEffect(() => {
     return () => {
-      setFamily(["Mariia", "Marina", "Darina", "Yenia", "Xylon"]);
+      setFamily(["Mariia", "Marina", "Darina", "Yenia"]);
       setFamilyTwo(["Xylon", "Louis", "Efrain", "Monica"]);
     };
   }, []);
@@ -22,7 +22,7 @@ function UnshiftAndPush() {
     setUnshift("");
   }
 
-  function handlePushSubmit(e){
+  function handlePushSubmit(e) {
     e.preventDefault();
     familyTwo.push(push);
     setFamilyTwo(familyTwo);
@@ -30,51 +30,58 @@ function UnshiftAndPush() {
   }
   return (
     <>
-      <form onSubmit={handleUnshiftSubmit}>
-        <button>Unshift</button>
-        <input
-          type="text"
-          id="unshift"
-          value={unshift}
-          onChange={(e) => setUnshift(e.target.value)}
-        ></input>
-      </form>
-      {family.map((x, i) => {
-        return (
-          <p key={i}>
-            index = {i}: {x}
-            {""}
-          </p>
-        );
-      })}
-      <form onSubmit={handlePushSubmit}>
-        <button>Push</button>
-        <input
-          type="text"
-          id="push"
-          value={push}
-          onChange={(e) => setPush(e.target.value)}
-        ></input>
-      </form>
-      <p>Another Family Array</p>
-      {familyTwo.map((x, i) => {
-        return (
-          <p>
-            index = {i}: {x}
-          </p>
-        );
-      })}
-      <p>
-        When the developer decides to use the method push, it will add elements
-        to the end of the array. There is another method that is called
-        unshift() which adds to the begging of an Array.
-      </p>
-      <p>
-        for example if the user decided to use push element to the family array
-        it will look like this
-      </p>
+      <div className="cards">
+        <div className="card">
+          <h3>.unshift()</h3>
+          <p>it adds elements to the beginning of the array</p>
+          <form>
+            <button>Shift</button>
+          </form>
+          <form onSubmit={handleUnshiftSubmit}>
+            <button>Unshift</button>
+            <input
+              type="text"
+              id="unshift"
+              value={unshift}
+              onChange={(e) => setUnshift(e.target.value)}
+            ></input>
+          </form>
 
-      <p> Este nuevo elemento fue agreago con el array</p>
+          {family.map((x, i) => {
+            return (
+              <p key={i}>
+                index = {i}: {x}
+                {""}
+              </p>
+            );
+          })}
+        </div>
+        <div className="card">
+          <h3>.push()</h3>
+          <p>it adds elements to the end of the array</p>
+          <h3>.pop()</h3>
+          
+          <form>
+            <button>Pop</button>
+          </form>
+          <form onSubmit={handlePushSubmit}>
+            <button>Push</button>
+            <input
+              type="text"
+              id="push"
+              value={push}
+              onChange={(e) => setPush(e.target.value)}
+            ></input>
+          </form>
+          {familyTwo.map((x, i) => {
+            return (
+              <p>
+                index = {i}: {x}
+              </p>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 }
