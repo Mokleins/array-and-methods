@@ -23,8 +23,8 @@ function UnshiftAndPush() {
       setUnshift("");
       setIsError1(false);
     }
-    if(unshift === ""){
-        setIsError1(true);
+    if (unshift === "") {
+      setIsError1(true);
     }
   }
 
@@ -40,6 +40,20 @@ function UnshiftAndPush() {
       setIsError(true);
     }
   }
+
+  function handlePopSubmit(e) {
+    e.preventDefault();
+    familyTwo.pop();
+    setFamilyTwo(familyTwo);
+    
+  }
+
+  function handleShiftSubmit(e) {
+    e.preventDefault();
+    family.shift();
+    setFamily(family);
+    setUnshift("");
+  }
   return (
     <>
       <div className="cards">
@@ -49,7 +63,7 @@ function UnshiftAndPush() {
           <h3>.shift()</h3>
           <p>It removes the first element in an Array</p>
           <div className="horizontal">
-            <form>
+            <form onSubmit={handleShiftSubmit}>
               <button>Shift</button>
             </form>
             <form onSubmit={handleUnshiftSubmit}>
@@ -82,7 +96,7 @@ function UnshiftAndPush() {
           <h3>.pop()</h3>
           <p>It removes the last element in an Array</p>
           <div className="horizontal">
-            <form>
+            <form onSubmit={handlePopSubmit}>
               <button>Pop</button>
             </form>
             <form onSubmit={handlePushSubmit}>
