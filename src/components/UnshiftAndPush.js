@@ -85,7 +85,6 @@ function UnshiftAndPush() {
             return (
               <p key={i}>
                 index = {i}: {x}
-                {""}
               </p>
             );
           })}
@@ -116,7 +115,7 @@ function UnshiftAndPush() {
           </div>
           {familyTwo.map((x, i) => {
             return (
-              <p>
+              <p key={i}>
                 index = {i}: {x}
               </p>
             );
