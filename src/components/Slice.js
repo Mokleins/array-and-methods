@@ -15,10 +15,11 @@ function Slice() {
 
   function handleSlice (e) {
     e.preventDefault();
+    /** */
     if (first && second) {
         console.log(array)
         let newArr = array.slice(parseInt(first), parseInt(second))
-        setArray((newArr) => newArr.filter(element => element !== ""))
+        setArray(newArr)
         console.log(array)
     }
   }
