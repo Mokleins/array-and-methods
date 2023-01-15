@@ -33,8 +33,7 @@ function Slice() {
   }
 
   return (
-    <>
-      <div className="cards">   
+    <> 
         <div className="card">
           <h3>.slice()</h3>
           <p>
@@ -68,7 +67,6 @@ function Slice() {
             })}
           </div>
         </div>
-      </div>
     </>
   );
 }

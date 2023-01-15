@@ -32,7 +32,6 @@ function Push() {
 
   return (
     <>
-      <div className="cards">
         <div className="card">
           <h3>.push()</h3>
           <p>It adds elements to the end of the array</p>
@@ -65,7 +64,6 @@ function Push() {
             );
           })}
         </div>
-      </div>
     </>
   );
 }

@@ -6,9 +6,11 @@ function App() {
   return (
     <div className="App" >
       <header className="App-header">
+      <div className="cards">
       <Push />
       <Unshift />
       <Slice />
+      </div>
       </header>
     </div>
   );
