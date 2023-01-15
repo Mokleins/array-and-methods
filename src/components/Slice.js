@@ -22,11 +22,15 @@ function Slice() {
         setArray(newArr)
         console.log(array)
     }
+    if (first && !second) {
+        let newArr = array.slice(parseInt(first))
+        setArray(newArr)
+    }
   }
 
   return (
     <>
-      <div className="cards">
+      <div className="cards">   
         <div className="card">
           <h3>.slice()</h3>
           <p>
