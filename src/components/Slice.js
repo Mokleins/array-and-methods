@@ -4,6 +4,7 @@ function Slice() {
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
   const [array, setArray] = useState([]);
+  const [errors, setErrors] = useState("");
 
   useEffect(() => {
     return () => {
@@ -15,16 +16,19 @@ function Slice() {
 
   function handleSlice (e) {
     e.preventDefault();
-    /** */
     if (first && second) {
-        console.log(array)
-        let newArr = array.slice(parseInt(first), parseInt(second))
-        setArray(newArr)
-        console.log(array)
+        console.log(array);
+        let newArr = array.slice(parseInt(first), parseInt(second));
+        setArray(newArr);
+        console.log(array);
     }
     if (first && !second) {
-        let newArr = array.slice(parseInt(first))
-        setArray(newArr)
+        let newArr = array.slice(parseInt(first));
+        setArray(newArr);
+    }
+    if (!first && second) {
+        setErrors("noFirstArgument")
+        console.log(errors)
     }
   }
 
