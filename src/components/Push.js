@@ -1,16 +1,12 @@
 import { React, useState, useEffect } from "react";
 
-function UnshiftAndPush() {
-  
+function Push() {
   const [push, setPush] = useState("");
-  const [family, setFamily] = useState([]);
   const [familyTwo, setFamilyTwo] = useState([]);
   const [isError, setIsError] = useState(false);
- 
 
   useEffect(() => {
     return () => {
-      setFamily(["Mariia", "Marina", "Darina", "Yenia"]);
       setFamilyTwo(["Xylon", "Louis", "Efrain", "Monica"]);
     };
   }, []);
@@ -31,11 +27,9 @@ function UnshiftAndPush() {
   function handlePopSubmit(e) {
     e.preventDefault();
     familyTwo.pop();
-    setFamilyTwo((familyTwo) => familyTwo.filter(member => member !== ""));
-    
+    setFamilyTwo((familyTwo) => familyTwo.filter((member) => member !== ""));
   }
 
-  
   return (
     <>
       <div className="cards">
@@ -76,4 +70,4 @@ function UnshiftAndPush() {
   );
 }
 
-export default UnshiftAndPush;
+export default Push;

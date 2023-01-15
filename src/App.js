@@ -1,4 +1,4 @@
-import UnshiftAndPush from "./components/UnshiftAndPush";
+import Push from "./components/Push";
 import Slice from "./components/Slice";
 import Unshift from "./components/Unshift";
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App" >
       <header className="App-header">
-      <UnshiftAndPush />
+      <Push />
       <Unshift />
       <Slice />
       </header>
