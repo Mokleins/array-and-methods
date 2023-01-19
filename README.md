@@ -17,4 +17,4 @@ they are destructive methods
 .slice()
 To remove elements from an Array nondestructively (without mutating the original Array), we can use the .slice() method. Just as the name implies, .slice() returns a portion, or slice, of an Array. The method takes 0, 1, or 2 arguments and returns a new array containing the sliced elements.
 
-It is important to understand these methods
+It is important to understand these methods.
