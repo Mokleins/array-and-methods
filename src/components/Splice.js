@@ -16,6 +16,7 @@ function Splice() {
 
   function handleSplice(e) {
     e.preventDefault();
+    
   }
 
   return (
