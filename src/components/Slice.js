@@ -53,6 +53,11 @@ function Slice() {
               onChange={(e) => setSecond(e.target.value)}
             ></input>
           </form>
+        {isError1 ? (
+          <p className="error">It can't be an empty string</p>
+        ) : (
+          <p></p>
+        )}
         </div>
         <div>
           {array.map((x, i) => {
