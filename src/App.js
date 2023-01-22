@@ -1,6 +1,7 @@
 import Push from "./components/Push";
 import Slice from "./components/Slice";
 import Unshift from "./components/Unshift";
+import Splice from "./components/Splice";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Push />
       <Unshift />
       <Slice />
+      <Splice />
       </div>
       </header>
     </div>

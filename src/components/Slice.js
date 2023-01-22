@@ -12,8 +12,6 @@ function Slice() {
     };
   }, []);
 
-  console.log(array);
-
   function handleSlice (e) {
     e.preventDefault();
     if (first && second) {
