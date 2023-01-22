@@ -56,7 +56,8 @@ function Slice() {
             </form>
             </div>
           <div>
-            {array.map((x, i) => {
+            {
+            array.map((x, i) => {
               return (
                 <p key={i}>
                   index = {i}: {x}

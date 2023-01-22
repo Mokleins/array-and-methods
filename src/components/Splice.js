@@ -3,8 +3,10 @@ import { React, useEffect, useState } from "react";
 function Splice() {
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
+  const [third, setThird] = useState("");
   const [array, setArray] = useState([]);
   const [errors, setErrors] = useState("");
+  
 
   useEffect(() => {
     return () => {
@@ -15,6 +17,7 @@ function Splice() {
   function handleSplice(e) {
     e.preventDefault();
   }
+
   return (
     <>
       <div className="card">
@@ -34,7 +37,28 @@ function Splice() {
               value={first}
               onChange={(e) => setFirst(e.target.value)}
             ></input>
+            <input
+            type= "text"
+            id = "second"
+            value={second}
+            onChange= {(e) => setSecond(e.target.value)}>
+            </input>
+            <input
+            type= "text"
+            id = "third"
+            value ={third}
+            onChange= {(e) => setThird(e.target.value)}>
+            </input>
           </form>
+        </div>
+        <div>
+          {array.map((x, i) => {
+            return (
+              <p key={i}>
+                index = {i}: {x}
+              </p>
+            );
+          })}
         </div>
       </div>
     </>
