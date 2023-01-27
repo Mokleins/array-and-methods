@@ -53,8 +53,8 @@ function Slice() {
               onChange={(e) => setSecond(e.target.value)}
             ></input>
           </form>
-        {isError1 ? (
-          <p className="error">It can't be an empty string</p>
+        {errors === "noFirstArgument" ? (
+          <p className="error">Add first argument</p>
         ) : (
           <p></p>
         )}
